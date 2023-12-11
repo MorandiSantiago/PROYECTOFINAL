@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            
+            <button class="btnLogin-popup">Iniciar sesion</button>
+        </nav>
+    </header>
+
+<h1>¡Bienvenidos!</h1>
+
+    
+    <div class="wrapper">
+        <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+
+        <div class="form-box login">
+            <h2>Iniciar sesion</h2>
+            <form action="../admin/index.php" method="post">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span> 
+                    <input type="email" required>
+                    <label>E-mail</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span> 
+                    <input type="password" required>
+                    <label>Contraseña</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Guardar</label>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn">Iniciar sesion</button>
+                <div class="register">
+                    
+                    <p>¿No tienes cuenta?<a href="#" class="register-link"> Crear cuenta</a></p>
+                </div>
+            </form>
+        </div>
+
+        
+        
+
+        <div class="form-box register">
+            <h2>Registrate</h2>
+            <form action="../cards/productos.html" method="post">
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span> 
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span> 
+                    <input type="email" required>
+                    <label>E-mail</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span> 
+                    <input type="password" required>
+                    <label>Contraseña</label>
+                </div>
+                
+                <button type="submit" class="btn">Crear usuario</button>
+                <div class="register">
+                    
+                    <p>¿Ya tienes cuenta?<a href="#" class="login-register"> Iniciar sesion</a></p>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
