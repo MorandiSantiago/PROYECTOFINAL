@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: catalogo_demo
+      MARIADB_USER: catalogo
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Definir DB_PASSWORD en un archivo privado}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Definir DB_ROOT_PASSWORD en un archivo privado}
+    volumes:
+      - datos_demo:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:${APP_PORT:-8088}:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: catalogo_demo
+      DB_USER: catalogo
+      DB_PASSWORD: ${DB_PASSWORD:?Definir DB_PASSWORD en un archivo privado}
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  datos_demo:
